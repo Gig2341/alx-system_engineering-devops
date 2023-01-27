@@ -1,4 +1,4 @@
-r!/usr/bin/env bash
+#!/usr/bin/env bash
 # displays the pid along with the process name, of
 #+ processes whose name contains the word "bash".
 
