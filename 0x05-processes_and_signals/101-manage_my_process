@@ -1,2 +1,28 @@
 #!/usr/bin/env bash
-# later wai
+# manages the manage_my_process file
+
+
+file="/var/run/my_process.pid"
+if [ "$1" = "start" ]
+then
+	./manage_my_process
+	echo "$$" > $file
+	echo "manage_my_process started"
+
+elif [ "$1" = "stop" ]
+then
+	echo "manage_my_process stopped"
+	kill "$(pgrep -f manage_my_process)"
+	rm -rf $file
+
+elif [ "$1" = "restart" ]
+then
+	echo "manage_my_process stopped"
+	kill "$(pgrep -f manage_my_process)"
+	rm -rf $file
+	./manage_my_process
+	echo "$$" > $file
+	
+else
+	echo "Usage: manage_my_process {start|stop|restart}"
+fi
