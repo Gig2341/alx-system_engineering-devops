@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+# creates a file containing its pid
+# displays "To infinity and beyond" definitely
+# displays "Y U no love me?!" when receiving SIGINT
+# displays "I hate the kill command" when receiving SIGTERM
+# deletes the file and terminate itself when receiving SIGQUIT
 
 echo "$$" > /var/run/myscript.pid
 
